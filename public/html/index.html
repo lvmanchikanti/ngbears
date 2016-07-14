@@ -7,9 +7,41 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <div ng-controller='MainController'>
-      <input type="text" ng-model='message'>
-      {{message}}
+  <div ng-controller='MainController' class="container">
+    <div class="row">
+      <div class="col-md col-md-offset-2">
+        <div class="form-group">
+          <label>Type:</label>
+          <input type="text" class="form-control" ng-model='type'>
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <input type="text" class="form-control" ng-model='gender'>
+        </div>
+        <div class="form-group">
+          <label>Size:</label>
+          <input type="text" class="form-control" ng-model='size'>
+        </div>
+        <div class="form-group">
+          <label>Diet:</label>
+          <input type="text" class="form-control" ng-model='diet'>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+          <button class="btn btn-warning btn-block" ng-click='create(type,gender,size,diet)'>Create</button>
+      </div>
+    </div>
+
+    <div class="row" ng-repeat='eachItem in bears'>
+      <div class="jumbotron" data-id={{eachItem.id}}>
+        <button class="btn btn-sm btn-danger pull-right" ng-click='delete(eachItem.id)'>X</button>
+        <p><strong>Type:</strong></p>{{eachItem.type}}
+        <p><strong>Gender:</strong></p>{{eachItem.gender}}
+        <p><strong>Size:</strong></p>{{eachItem.size}}
+        <p><strong>Diet:</strong></p>{{eachItem.diet}}
+        <p><strong>isAwake:</strong></p> {{eachItem.isAwake}}
+      </div>
+    </div>
   </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
