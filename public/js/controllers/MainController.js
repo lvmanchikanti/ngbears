@@ -6,7 +6,8 @@
   MainController.$inject = ['$scope', 'BearService'];
 
   function MainController($scope, BearService){
-    $scope.message = 'Hey'
+    $scope.message = 'Hey';
+
     console.log(BearService);
     var bears;
     BearService.readAll()
@@ -14,5 +15,9 @@
                   bears = BearService.bears;
                   console.log(bears);
                 });
+      BearService.create('typ', 'gend', 'siz', 'die');
+      BearService.delete();
+      BearService.update();
+
     }
 })();

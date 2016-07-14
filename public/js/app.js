@@ -1,1 +1,2 @@
-angular.module('ngbears', []); 
+//creates applicatoin and starts everthing up 
+angular.module('ngbears', []);
